@@ -1,11 +1,10 @@
-import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import CountUp from 'react-countup';
 import { Button } from '../components/ui/Button';
 import { Section } from '../components/ui/Section';
-import { Modal } from '../components/ui/Modal';
-import { ArrowRight, BarChart3, ShieldCheck, GraduationCap, Globe2, Zap, Award, Calendar } from 'lucide-react';
+import { useBooking } from '../context/BookingContext';
+import { BarChart3, ShieldCheck, GraduationCap, Globe2, Zap, Award } from 'lucide-react';
 
 const stats = [
   { label: 'Learners Empowered', value: 20000, suffix: '+' },
@@ -38,7 +37,7 @@ const partners = [
 
 export const Home = () => {
   const navigate = useNavigate();
-  const [isDemoModalOpen, setIsDemoModalOpen] = useState(false);
+  const { openBooking } = useBooking();
 
   return (
     <div className="overflow-hidden">
@@ -79,7 +78,7 @@ export const Home = () => {
                 variant="outline" 
                 size="lg" 
                 className="text-white border-white hover:bg-white/10 hover:text-white"
-                onClick={() => setIsDemoModalOpen(true)}
+                onClick={openBooking}
               >
                 Book a Demo
               </Button>
@@ -242,7 +241,7 @@ export const Home = () => {
                 variant="outline" 
                 size="lg" 
                 className="text-lg px-12 text-white border-white hover:bg-white hover:text-navy"
-                onClick={() => setIsDemoModalOpen(true)}
+                onClick={openBooking}
               >
                 Book a Demo
               </Button>
@@ -250,28 +249,6 @@ export const Home = () => {
           </div>
         </div>
       </section>
-
-      {/* Demo Modal */}
-      <Modal 
-        isOpen={isDemoModalOpen} 
-        onClose={() => setIsDemoModalOpen(false)}
-        title="Book a Demo"
-      >
-        <div className="text-center">
-          <div className="mb-6">
-            <Calendar className="w-12 h-12 text-lime mx-auto mb-4" />
-            <p className="text-gray-600 mb-4">
-              Schedule a 30-minute walkthrough with our sector experts.
-            </p>
-          </div>
-          <div className="bg-gray-50 border border-gray-200 rounded-xl p-8 min-h-[300px] flex items-center justify-center">
-             <div className="text-center">
-               <div className="animate-pulse text-navy font-semibold mb-2">Loading Scheduler...</div>
-               <p className="text-sm text-gray-500">(Demo Placeholder)</p>
-             </div>
-          </div>
-        </div>
-      </Modal>
     </div>
   );
 };

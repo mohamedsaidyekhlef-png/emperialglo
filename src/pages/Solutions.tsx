@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import { Section } from '../components/ui/Section';
 import { Button } from '../components/ui/Button';
-import { Building2, Globe2, GraduationCap, Users, ArrowRight, CheckCircle2 } from 'lucide-react';
+import { useBooking } from '../context/BookingContext';
+import { Building2, Globe2, GraduationCap, Users, CheckCircle2 } from 'lucide-react';
 import { cn } from '../lib/utils';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -67,6 +68,7 @@ const sectors = [
 export const Solutions = () => {
   const [activeTab, setActiveTab] = useState('gov');
   const activeSector = sectors.find(s => s.id === activeTab) || sectors[0];
+  const { openBooking } = useBooking();
 
   return (
     <div className="pt-20">
@@ -124,7 +126,7 @@ export const Solutions = () => {
                 </div>
 
                 <div className="flex gap-4">
-                  <Button>Request Pilot</Button>
+                  <Button onClick={openBooking}>Request Pilot</Button>
                   <Button variant="outline">Download Brief</Button>
                 </div>
               </div>

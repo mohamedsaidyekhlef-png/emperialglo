@@ -11,6 +11,8 @@ import { About } from './pages/About';
 import { Contact } from './pages/Contact';
 import { Resources } from './pages/Resources';
 import { Checkout } from './pages/Checkout';
+import { BookingProvider } from './context/BookingContext';
+import { BookingModal } from './components/features/BookingModal';
 
 // Fallback for 404
 const NotFound = () => (
@@ -24,29 +26,32 @@ const NotFound = () => (
 
 function App() {
   return (
-    <Router>
-      <div className="min-h-screen flex flex-col font-sans">
-        <Navbar />
-        <main className="flex-grow">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/pricing" element={<Pricing />} />
-            <Route path="/platform" element={<Platform />} />
-            <Route path="/solutions" element={<Solutions />} />
-            <Route path="/impact" element={<Impact />} />
-            <Route path="/partners" element={<Partners />} />
-            <Route path="/company" element={<About />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/resources" element={<Resources />} />
-            <Route path="/checkout" element={<Checkout />} />
-            
-            {/* Fallback */}
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </main>
-        <Footer />
-      </div>
-    </Router>
+    <BookingProvider>
+      <Router>
+        <div className="min-h-screen flex flex-col font-sans">
+          <Navbar />
+          <main className="flex-grow">
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/pricing" element={<Pricing />} />
+              <Route path="/platform" element={<Platform />} />
+              <Route path="/solutions" element={<Solutions />} />
+              <Route path="/impact" element={<Impact />} />
+              <Route path="/partners" element={<Partners />} />
+              <Route path="/company" element={<About />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="/resources" element={<Resources />} />
+              <Route path="/checkout" element={<Checkout />} />
+              
+              {/* Fallback */}
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </main>
+          <Footer />
+          <BookingModal />
+        </div>
+      </Router>
+    </BookingProvider>
   );
 }
 

@@ -1,5 +1,6 @@
 import { Section } from '../components/ui/Section';
 import { Button } from '../components/ui/Button';
+import { useBooking } from '../context/BookingContext';
 import { BookOpen, Award, BarChart2, Gamepad2, Layers, Smartphone, Check } from 'lucide-react';
 
 const features = [
@@ -36,6 +37,8 @@ const features = [
 ];
 
 export const Platform = () => {
+  const { openBooking } = useBooking();
+
   return (
     <div className="pt-20">
       {/* Hero */}
@@ -51,7 +54,7 @@ export const Platform = () => {
             EMPORIA unites learning, credentialing, analytics, and career placement—all in a single, scalable platform.
           </p>
           <div className="flex justify-center gap-4">
-             <Button size="lg">Request Demo</Button>
+             <Button size="lg" onClick={openBooking}>Request Demo</Button>
           </div>
         </div>
       </div>
@@ -109,7 +112,7 @@ export const Platform = () => {
       {/* CTA */}
       <Section background="navy" className="text-center">
         <h2 className="text-3xl font-heading font-bold text-white mb-6">See the platform in action.</h2>
-        <Button size="lg" className="bg-lime text-navy hover:bg-lime-hover">Book a Demo</Button>
+        <Button size="lg" className="bg-lime text-navy hover:bg-lime-hover" onClick={openBooking}>Book a Demo</Button>
       </Section>
     </div>
   );
