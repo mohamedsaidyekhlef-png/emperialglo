@@ -9,6 +9,7 @@ import { useBooking } from '../../context/BookingContext';
 const navItems = [
   { name: 'Solutions', href: '/solutions' },
   { name: 'Platform', href: '/platform' },
+  { name: 'AI Professor', href: '/ai-professor' },
   { name: 'Pricing', href: '/pricing' },
   { name: 'Impact', href: '/impact' },
   { name: 'Resources', href: '/resources' },
@@ -46,26 +47,27 @@ export const Navbar = () => {
         isScrolled ? 'bg-white/95 backdrop-blur-md shadow-sm py-3' : 'bg-transparent py-5'
       )}
     >
-      <div className="container mx-auto px-4 flex items-center justify-between">
+      <div className="container mx-auto px-4 flex items-center justify-between flex-nowrap">
         {/* Logo */}
-        <Link to="/" className="flex items-center gap-2 z-50">
-          <div className="w-8 h-8 bg-navy rounded-lg flex items-center justify-center">
-              <span className="text-lime font-bold text-xl">E</span>
-          </div>
-          <span className={cn("font-heading font-bold text-2xl tracking-tight", isScrolled ? "text-navy" : "text-navy")}>
-            Emporia
+        <Link to="/" className="flex items-center gap-0.5 z-50 shrink-0">
+          <span className="font-heading font-bold text-2xl tracking-tight flex items-center">
+            <span className="text-lime">E</span>
+            <span className={cn("transition-colors", isScrolled ? "text-navy" : "text-white")}>
+              MPORIAGLO
+            </span>
           </span>
         </Link>
 
         {/* Desktop Nav */}
-        <nav className="hidden lg:flex items-center gap-6 xl:gap-8">
+        <nav className="hidden lg:flex items-center gap-4 xl:gap-6 mx-4">
           {navItems.map((item) => (
             <Link
               key={item.name}
               to={item.href}
               className={cn(
-                "text-sm font-medium transition-colors",
-                location.pathname === '/' && !isScrolled ? "text-white/90 hover:text-white" : "text-navy/80 hover:text-navy"
+                "text-sm font-medium transition-colors whitespace-nowrap",
+                location.pathname === '/' && !isScrolled ? "text-white/90 hover:text-white" : "text-navy/80 hover:text-navy",
+                item.name === 'AI Professor' && (location.pathname === '/' && !isScrolled ? "text-lime hover:text-lime-light" : "text-navy font-bold")
               )}
             >
               {item.name}
@@ -74,7 +76,7 @@ export const Navbar = () => {
         </nav>
 
         {/* Actions */}
-        <div className="hidden lg:flex items-center gap-4">
+        <div className="hidden lg:flex items-center gap-3 shrink-0 whitespace-nowrap">
           <Button 
             variant="ghost" 
             size="sm" 
@@ -87,12 +89,12 @@ export const Navbar = () => {
               <Button 
                 variant="ghost" 
                 size="sm"
-                className={cn(location.pathname === '/' && !isScrolled ? "text-white hover:bg-white/10" : "")}
+                className={cn("whitespace-nowrap", location.pathname === '/' && !isScrolled ? "text-white hover:bg-white/10" : "")}
               >
                 Log in
               </Button>
           </a>
-          <Button onClick={handleStartPilot}>Start Free Pilot</Button>
+          <Button onClick={handleStartPilot} className="whitespace-nowrap">Start Free Pilot</Button>
         </div>
 
         {/* Mobile Menu Toggle */}
@@ -123,7 +125,10 @@ export const Navbar = () => {
                 <Link
                   key={item.name}
                   to={item.href}
-                  className="text-2xl font-heading font-semibold text-navy"
+                  className={cn(
+                    "text-2xl font-heading font-semibold",
+                    item.name === 'AI Professor' ? "text-lime-600" : "text-navy"
+                  )}
                 >
                   {item.name}
                 </Link>

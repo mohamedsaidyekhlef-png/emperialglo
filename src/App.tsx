@@ -11,6 +11,7 @@ import { About } from './pages/About';
 import { Contact } from './pages/Contact';
 import { Resources } from './pages/Resources';
 import { Checkout } from './pages/Checkout';
+import { AiProfessor } from './pages/AiProfessor';
 import { BookingProvider } from './context/BookingContext';
 import { BookingModal } from './components/features/BookingModal';
 
@@ -42,6 +43,7 @@ function App() {
               <Route path="/contact" element={<Contact />} />
               <Route path="/resources" element={<Resources />} />
               <Route path="/checkout" element={<Checkout />} />
+              <Route path="/ai-professor" element={<AiProfessor />} />
               
               {/* Fallback */}
               <Route path="*" element={<NotFound />} />

@@ -3,28 +3,28 @@ import { Facebook, Twitter, Linkedin, Instagram, MapPin } from 'lucide-react';
 
 const footerLinks = {
   Solutions: [
-    { name: 'Workforce Upskilling', href: '/solutions/workforce' },
-    { name: 'Civil-Service Academies', href: '/solutions/civil-service' },
-    { name: 'HSE & Compliance', href: '/solutions/hse' },
-    { name: 'Job-Matching', href: '/solutions/jobs' },
+    { name: 'Workforce Upskilling', href: '/solutions' },
+    { name: 'Civil-Service Academies', href: '/solutions' },
+    { name: 'HSE & Compliance', href: '/solutions' },
+    { name: 'Job-Matching', href: '/solutions' },
   ],
   Platform: [
-    { name: 'LMS Deep-dive', href: '/platform/lms' },
-    { name: 'Digital Credentials', href: '/platform/credentials' },
-    { name: 'Analytics & ROI', href: '/platform/analytics' },
-    { name: 'Security', href: '/platform/security' },
+    { name: 'AI Professor', href: '/ai-professor' },
+    { name: 'LMS Deep-dive', href: '/platform' },
+    { name: 'Digital Credentials', href: '/platform' },
+    { name: 'Analytics & ROI', href: '/platform' },
   ],
   Company: [
-    { name: 'About Us', href: '/company/about' },
-    { name: 'Careers', href: '/company/careers' },
-    { name: 'Press Room', href: '/company/press' },
-    { name: 'Contact Us', href: '/company/contact' },
+    { name: 'About Us', href: '/company' },
+    { name: 'Careers', href: '/company' },
+    { name: 'Press Room', href: '/resources' },
+    { name: 'Contact Us', href: '/contact' },
   ],
   Legal: [
-    { name: 'Privacy Policy', href: '/legal/privacy' },
-    { name: 'Terms of Service', href: '/legal/terms' },
-    { name: 'Cookie Policy', href: '/legal/cookies' },
-    { name: 'SLA', href: '/legal/sla' },
+    { name: 'Privacy Policy', href: '#' },
+    { name: 'Terms of Service', href: '#' },
+    { name: 'Cookie Policy', href: '#' },
+    { name: 'SLA', href: '#' },
   ]
 };
 
